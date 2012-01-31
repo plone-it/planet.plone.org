@@ -7,22 +7,21 @@
 		<title>
 			$feed.config.name
 		</title>
-		<link rel="alternate" type="application/rss+xml" href="http://feeds.plone.org/ploneblogs" title="Plone Blogs" />
+		<link rel="alternate" type="application/rss+xml" href="http://feeds.plone.it/ploneblogs" title="Plone Blogs" />
 		<link rel="stylesheet" href="http://plone.org/plone.css" type="text/css" media="screen" charset="utf-8" />
-		<base href="http://plone.org/" />
+		<base href="http://plone.it/" />
 	</head>
 	<body>
 		<div id="outer-wrapper">
 			<div id="inner-wrapper">
 				<div id="nav">
-					<form id="search" name="searchform" action="http://plone.org/search">
+					<form id="search" name="searchform" action="http://plone.it/search">
 						<input id="search-site" name="SearchableText" type="search" title="Search this site…" accesskey="4" class="inputLabel" size="15" />
 					</form>
 					<div id="user">
-						<a href="http://plone.org/login">Log in</a>
 					</div>
 					<ul id="main-nav" class="navigation">
-						<li id="portaltab-index_html" class="plain"><a href="http://plone.org" title="">Home</a></li><li id="portaltab-products" class="plain"><a href="http://plone.org/products" title="Plone releases and available add-on products for Plone. Make sure you have Plone installed before downloading the add-ons — and make sure you are using add-ons that have been certified for use with your particular version.">Downloads</a></li><li id="portaltab-documentation" class="plain"><a href="http://plone.org/documentation" title="The primary source for Plone documentation.">Documentation</a></li><li id="portaltab-contribute" class="plain"><a href="http://plone.org/contribute" title="Contains all developer-related material.">Get Involved</a></li><li id="portaltab-foundation" class="plain"><a href="http://plone.org/foundation" title="The Plone Foundation exists to further the development, marketing, and legal affairs of Plone and the Plone community.">Plone Foundation</a></li><li id="portaltab-support" class="plain"><a href="http://plone.org/support" title="Contact details for the Plone project.">Support</a></li>
+						<li id="portaltab-index_html" class="plain"><a href="http://plone.it" title="">Home</a></li>
 					</ul>
 				</div>
 				<div id="content-wrapper">
@@ -34,8 +33,8 @@
 										$feed.config.name
 									</h1>
 									<p class="documentDescription">
-									This is where developers and integrators write about Plone, and is your best source for
-									news and developments from the community.
+                                    Qui è dove gli sviluppatori e gli integratori italiani scrivono di Plone, ed è la vostra
+                                    migliore fonte per le notizie e gli sviluppi della comunità.
 									</p>
 
 
@@ -81,13 +80,12 @@
 													About
 												</dt>
 												<dd class="portletItem">
-													<p>Last updated: $feed.updated</p>
-													<p>To subscribe to this feed in the reader of your choice, 
-														<a href="http://feeds.plone.org/ploneblogs">click here</a>.
+													<p>Ultimo aggiornamento: $feed.updated</p>
+													<p>Per iscriverti a questo feed nel tuo lettore preferito, 
+														<a href="http://feeds.plone.it/ploneblogs">clicca qui</a>.
 													</p>
-													<p>To have your Plone-centric blog added to
-														Planet Plone, please file an issue in the
-														Plone <a href="http://dev.plone.org/plone/newticket?component=Website">issue
+													<p>Per inserire il tuo blog su Plone nel Planet, 
+														Plone <a href="http://dev.plone.it/plone/newticket?component=Website">issue
 														tracker, under component "Website."</a>
 													</p>
 												</dd>
