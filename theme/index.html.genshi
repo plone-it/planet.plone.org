@@ -82,11 +82,10 @@
 												<dd class="portletItem">
 													<p>Ultimo aggiornamento: $feed.updated</p>
 													<p>Per iscriverti a questo feed nel tuo lettore preferito, 
-														<a href="http://feeds.plone.it/ploneblogs">clicca qui</a>.
+														<a href="http://feeds.plone.it/ploneitblogs">clicca qui</a>.
 													</p>
-													<p>Per inserire il tuo blog su Plone nel Planet, 
-														Plone <a href="http://dev.plone.it/plone/newticket?component=Website">issue
-														tracker, under component "Website."</a>
+													<p>Per inserire scrivi a
+                                                        <a href="mailto:plone-plone-it@lists.plone.org">plone-plone-it@lists.plone.org</a> 
 													</p>
 												</dd>
 											</dl>
