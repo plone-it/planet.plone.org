@@ -8,10 +8,10 @@
 # —Sean Kelly, kelly@seankelly.biz, Plone AI Team
 
 [Planet]
-name            = Planet Plone
-link            = http://planet.plone.org/
-owner_name      = Plone Website Team
-owner_email     = plone-website@lists.sourceforge.net
+name            = Planet Plone.it
+link            = http://planet.plone.it/
+owner_name      = Plone.it Team
+owner_email     = plone-plone-it@lists.plone.org
 output_theme    = ${buildout:directory}/theme
 output_dir      = ${buildout:htdocs-directory}
 cache_directory = ${buildout:directory}/var/cache
