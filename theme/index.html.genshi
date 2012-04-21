@@ -1,104 +1,165 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:py="http://genshi.edgewall.org/">
-	<head>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<title>
-			$feed.config.name
-		</title>
-		<link rel="stylesheet" href="http://plone.org/plone.css" type="text/css" media="screen" charset="utf-8" />
-		<base href="http://plone.it/" />
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>
+        $feed.config.name
+    </title>
+    <link href="http://plone.it/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    <link rel="alternate" type="application/rss+xml" href="http://plone.it/planet" title="Planet Plone.it" />
+    <link rel="stylesheet" href="./style.css" type="
+    text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="./slimbar.css" type="
+    text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" src="./jquery.js">//</script>
+    <script type="text/javascript" src="./dropdown.js">//</script>
+    <!-- <base href="http://plone.it/" /> -->
+  </head>
+  <body>
+    <!-- slimbar -->
+    <div class="navbar" id="slimbar">
+      <div class="navbar-inner">
+       <div class="container">
+        <a href="http://plone.org">plone.org</a>
+        <dl class="actionMenu deactivated">
+          <dt class="actionMenuHeader">
+            <a href="#">plone in the world</a>
+          </dt>
+          <dd class="navbar actionMenuContent">
+            <ul class="dropdown-menu">
+                  <li><a href="http://plone.de">plone.de</a></li>
+                  <li><a href="http://plone.fr">plone.fr</a></li>
+                  <li><a href="http://plone.it">plone.it</a></li>
+                  <li><a href="http://plone.jp">plone.jp</a></li>
+                  <li><a href="http://plone.org.br">plone.org.br</a></li>
+                  <li><a href="http://plone.org.pl/">plone.org.pl</a></li>
+            </ul>
+          </dd>
+        </dl></div>
+      </div>
+    </div>
 
-	</head>
-	<body>
-		<div id="outer-wrapper">
-			<div id="inner-wrapper">
-				<div id="nav">
-					<form id="search" name="searchform" action="http://plone.it/search">
-						<input id="search-site" name="SearchableText" type="search" title="Search this site…" accesskey="4" class="inputLabel" size="15" />
-					</form>
-					<div id="user">
-					</div>
-					<ul id="main-nav" class="navigation">
-						<li id="portaltab-index_html" class="plain"><a href="http://plone.it" title="">Home</a></li>
-					</ul>
-				</div>
-				<div id="content-wrapper">
-					<div class="grid-row">
-						<div class="grid-cell position-leftmost width-two-thirds">
-							<div id="region-content" class="documentContent">
-								<div id="content">
-									<h1 class="documentFirstHeading">
-										$feed.config.name
-									</h1>
-									<p class="documentDescription">
-                                    Qui è dove gli sviluppatori e gli integratori italiani scrivono di Plone, ed è la vostra
-                                    migliore fonte per le notizie e gli sviluppi della comunità.
-									</p>
+    <div id="outer-wrapper">
+      <div id="inner-wrapper">
+        <div id="portal-header">
 
+<!--           <div id="portal-searchbox">
+            <form action="http://plone.it/search"
+                  id="livesearch0" name="searchform">
+              <div class="LSBox">
+                <label for="searchGadget"
+                    class="hiddenStructure">Cerca nel sito</label>
+                  <input type="text" id="searchGadget"
+                    class="searchField inputLabel inputLabelActive"
+                    accesskey="4" title="Cerca nel sito"
+                    size="18" name="SearchableText"
+                    autocomplete="off" />
+                  <input type="submit"
+                    value="Cerca" class="searchButton" />
+              </div>
 
-									<py:for each="entry in entries">
-									<div class="channelgroup" py:strip="not entry.new_date">
-										<h2 py:if="entry.new_date">$entry.new_date</h2>
+            </form>
+          </div> -->
 
-										<div class="entrygroup" py:strip="not entry.new_feed">
-											<h3 py:if="entry.new_feed">
-												<a class="link-plain" href="$entry.link" title="$entry.source.title">$entry.source.config.name:
-												<span py:if="entry.title" lang="$entry.title_detail.language">
-													$entry.title_detail.stream
-												</span>
-												</a>
-											</h3>
+<!--           <a href="http://plone.it" accesskey="1"
+            title="Plone Italia" id="portal-logo">
+            <img width="400" height="71"
+                src="./images/logo.png"
+                alt="Plone.it logo" title="Plone.it" />
+          </a>
 
-											<p class="discreet">
-												<py:if test="entry.author_detail and entry.author_detail.name">
-												by $entry.author_detail.name at </py:if> $entry.updated
-											</p>
+          <ul id="portal-globalnav">
+            <li class="plain" id="portaltab-scopri">
+              <a href="http://plone.it/scopri">Scopri</a></li>
+            <li id="portaltab-partecipa">
+              <a href="http://plone.it/partecipa">Partecipa</a></li>
+            <li class="plain" id="portaltab-diffondi">
+              <a href="http://plone.it/diffondi">Diffondi</a></li>
+          </ul> -->
+          <div class="visualClear"><!-- clear floats --></div>
+        </div>
 
-											<div class="entry">
-												<div class="tileBody" py:choose="">
-													<py:when test="entry.content">${entry.content[0].stream.parser.parse()}</py:when>
-													<py:when test="entry.summary_detail">${entry.summary_detail.stream}</py:when>
-												</div>
-											</div>
-										</div>
-									</div>
-									</py:for>
+        <div id="content-wrapper">
+          <div class="row">
+            <div class="cell width-full position-0">
+              <div id="region-content" class="documentContent">
+                <div id="content">
+                  <h1 class="documentFirstHeading">
+                    <a href="http://www.plone.it">
+                    $feed.config.name
+                    </a>
+                  </h1>
+                  <div id="intro-description">
+                    <p>Abbiamo riunito tutti gli RSS che parlano di
+                      Plone in Italia, consultali online o
+                      <a href="http://plone.it/planet/atom.xml">
+                        ricevili direttamente sul tuo news reader preferito.
+                      </a>
+                    </p>
+                    <p>Per aggiungere il tuo feed RSS e partecipare
+                      <a
+                      href="mailto:plone-plone-it@lists.plone.org">
+                      invia una mail alla lista italiana.</a>
+                    </p>
+                    <p class="discreet"
+                      id="last-update">Ultimo aggiornamento:
+                        <py:with vars="date, time = feed.updated.split('T')">
+                          <py:with vars="year, month, day  = date.split('-')">
+                            $day/$month/$year
+                          </py:with>
+                        ${time[:-1]}
+                        </py:with>
+                    </p>
+                  </div>
 
+                  <py:for each="entry in entries">
+                    <div class="channelgroup"
+                        py:strip="not entry.new_date">
+                      <h2 py:if="entry.new_date">$entry.new_date</h2>
+                      <div class="entrygroup"
+                          py:strip="not entry.new_feed">
 
-								</div><span id="contentBottomLeft"></span><span id="contentBottomRight"></span>
-							</div>
-						</div><!-- End cell -->
-						<div class="grid-cell position-two-thirds width-third">
-							<div id="sidebar">
-								<div class="visualPadding">
-									<div id="portletwrapper"
-											class="portletWrapper">
-										<div>
-											<dl class="portlet">
-												<dt class="portletHeader">
-													Planet Plone.it
-												</dt>
-												<dd class="portletItem">
-													<p>Ultimo aggiornamento: $feed.updated</p>
-													<p>Per iscriverti a questo feed,
-														<a href="http://plone.it/planet">clicca qui</a>.
-													</p>
-													<p>Per inserire un tuo feed scrivi a
-                                                        <a href="mailto:plone-plone-it@lists.plone.org">plone-plone-it@lists.plone.org</a>
-													</p>
-												</dd>
-											</dl>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div><!-- End row -->
-				</div>
-				<div style="clear:both"></div>
-			</div><!-- end inner-wrapper -->
-		</div><!-- end outer-wrapper -->
-	</body>
+                        <h3 py:if="entry.new_feed">
+                          <a class="link-plain" href="$entry.link"
+                              title="$entry.source.title">
+                              $entry.source.config.name:
+                              <span py:if="entry.title"
+                                lang="$entry.title_detail.language">
+                                $entry.title_detail.stream
+                              </span>
+                          </a>
+                        </h3>
+                        <p class="discreet author">
+                          <py:if
+                              test="entry.author_detail and entry.author_detail.name">
+                              di $entry.author_detail.name -
+                          </py:if>
+                          <py:with vars="date, time = entry.updated.split('T')">
+<!--                             <py:with vars="year, month, day  = date.split('-')">
+                              $day/$month/$year
+                            </py:with>
+ -->                          ${time[:-1]}
+                          </py:with>
+                        </p>
+                        <div class="entry">
+                          <div class="tileBody" py:choose="">
+                            <py:when test="entry.content">${entry.content[0].stream.parser.parse()}</py:when>
+                            <py:when test="entry.summary_detail">${entry.summary_detail.stream}</py:when>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </py:for>
+                </div>
+              </div>
+            </div><!-- end content -->
+          </div><!-- end grid-row -->
+          <div class="visualClear"><!-- clear floats --></div>
+        </div>
+      </div><!-- end inner-wrapper -->
+    </div><!-- end outer-wrapper -->
+  </body>
 </html>
