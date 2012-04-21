@@ -7,9 +7,9 @@
 		<title>
 			$feed.config.name
 		</title>
-		<link rel="alternate" type="application/rss+xml" href="http://feeds.plone.it/ploneblogs" title="Plone Blogs" />
 		<link rel="stylesheet" href="http://plone.org/plone.css" type="text/css" media="screen" charset="utf-8" />
 		<base href="http://plone.it/" />
+
 	</head>
 	<body>
 		<div id="outer-wrapper">
@@ -58,7 +58,7 @@
 
 											<div class="entry">
 												<div class="tileBody" py:choose="">
-													<py:when test="entry.content">${entry.content[0].stream}</py:when>
+													<py:when test="entry.content">${entry.content[0].stream.parser.parse()}</py:when>
 													<py:when test="entry.summary_detail">${entry.summary_detail.stream}</py:when>
 												</div>
 											</div>
@@ -73,19 +73,20 @@
 						<div class="grid-cell position-two-thirds width-third">
 							<div id="sidebar">
 								<div class="visualPadding">
-									<div id="portletwrapper-706c6f6e652e6c656674636f6c756d6e0a636f6e74656e745f747970650a48656c7043656e746572486f77546f0a706f72746c65745f7068635f61626f7574" class="portletWrapper kssattr-portlethash-706c6f6e652e6c656674636f6c756d6e0a636f6e74656e745f747970650a48656c7043656e746572486f77546f0a706f72746c65745f7068635f61626f7574">
+									<div id="portletwrapper"
+											class="portletWrapper">
 										<div>
 											<dl class="portlet">
 												<dt class="portletHeader">
-													About
+													Planet Plone.it
 												</dt>
 												<dd class="portletItem">
 													<p>Ultimo aggiornamento: $feed.updated</p>
-													<p>Per iscriverti a questo feed nel tuo lettore preferito, 
-														<a href="http://feeds.plone.it/ploneitblogs">clicca qui</a>.
+													<p>Per iscriverti a questo feed,
+														<a href="http://plone.it/planet">clicca qui</a>.
 													</p>
-													<p>Per inserire scrivi a
-                                                        <a href="mailto:plone-plone-it@lists.plone.org">plone-plone-it@lists.plone.org</a> 
+													<p>Per inserire un tuo feed scrivi a
+                                                        <a href="mailto:plone-plone-it@lists.plone.org">plone-plone-it@lists.plone.org</a>
 													</p>
 												</dd>
 											</dl>
