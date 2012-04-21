@@ -8,11 +8,13 @@
 # —Sean Kelly, kelly@seankelly.biz, Plone AI Team
 
 [Planet]
-name            = Planet Plone.it
+name            = Planet Plone Italia
 link            = http://plone.it/planet
 owner_name      = Plone.it Team
 owner_email     = plone-plone-it@lists.plone.org
 output_theme    = ${buildout:directory}/theme
 output_dir      = ${buildout:htdocs-directory}
 cache_directory = ${buildout:directory}/var/cache
+date_format     = %d/%m/%Y %H:%M
+new_date_format = %d/%m/%Y
 items_per_page  = 15
