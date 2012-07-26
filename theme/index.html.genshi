@@ -15,26 +15,29 @@
     text/css" media="screen" charset="utf-8" />
     <script type="text/javascript" src="./jquery.js">//</script>
     <script type="text/javascript" src="./dropdown.js">//</script>
-    <!-- <base href="http://plone.it/" /> -->
   </head>
   <body>
     <!-- slimbar -->
     <div class="navbar" id="slimbar">
       <div class="navbar-inner">
        <div class="container">
-        <a href="http://plone.org">plone.org</a>
+        <a href="http://plone.org" id="plone-org">plone.org</a>
         <dl class="actionMenu deactivated">
           <dt class="actionMenuHeader">
             <a href="#">plone in the world</a>
           </dt>
           <dd class="navbar actionMenuContent">
             <ul class="dropdown-menu">
-                  <li><a href="http://plone.de">plone.de</a></li>
-                  <li><a href="http://plone.fr">plone.fr</a></li>
-                  <li><a href="http://plone.it">plone.it</a></li>
-                  <li><a href="http://plone.jp">plone.jp</a></li>
-                  <li><a href="http://plone.org.br">plone.org.br</a></li>
-                  <li><a href="http://plone.org.pl/">plone.org.pl</a></li>
+              <li><a href="http://plone.de">plone.de</a>
+              </li>
+              <li><a href="http://plone.fr">plone.fr</a>
+              </li>
+              <li><a href="http://plone.jp">plone.jp</a>
+              </li>
+              <li><a href="http://plone.org.br">plone.org.br</a>
+              </li>
+              <li><a href="http://plone.org.pl/">plone.org.pl</a>
+              </li>
             </ul>
           </dd>
         </dl></div>
@@ -44,40 +47,6 @@
     <div id="outer-wrapper">
       <div id="inner-wrapper">
         <div id="portal-header">
-
-<!--           <div id="portal-searchbox">
-            <form action="http://plone.it/search"
-                  id="livesearch0" name="searchform">
-              <div class="LSBox">
-                <label for="searchGadget"
-                    class="hiddenStructure">Cerca nel sito</label>
-                  <input type="text" id="searchGadget"
-                    class="searchField inputLabel inputLabelActive"
-                    accesskey="4" title="Cerca nel sito"
-                    size="18" name="SearchableText"
-                    autocomplete="off" />
-                  <input type="submit"
-                    value="Cerca" class="searchButton" />
-              </div>
-
-            </form>
-          </div> -->
-
-<!--           <a href="http://plone.it" accesskey="1"
-            title="Plone Italia" id="portal-logo">
-            <img width="400" height="71"
-                src="./images/logo.png"
-                alt="Plone.it logo" title="Plone.it" />
-          </a>
-
-          <ul id="portal-globalnav">
-            <li class="plain" id="portaltab-scopri">
-              <a href="http://plone.it/scopri">Scopri</a></li>
-            <li id="portaltab-partecipa">
-              <a href="http://plone.it/partecipa">Partecipa</a></li>
-            <li class="plain" id="portaltab-diffondi">
-              <a href="http://plone.it/diffondi">Diffondi</a></li>
-          </ul> -->
           <div class="visualClear"><!-- clear floats --></div>
         </div>
 
@@ -86,63 +55,62 @@
             <div class="cell width-full position-0">
               <div id="region-content" class="documentContent">
                 <div id="content">
-                  <h1 class="documentFirstHeading">
-                    <a href="http://www.plone.it">
-                    $feed.config.name
-                    </a>
-                  </h1>
+
                   <div id="intro-description">
                     <p>Abbiamo riunito tutti gli RSS che parlano di
-                      Plone in Italia, consultali online o
-                      <a href="http://plone.it/planet/atom.xml">
-                        ricevili direttamente sul tuo news reader preferito.
-                      </a>
+                      Plone.
                     </p>
-                    <p>Per aggiungere il tuo feed RSS e partecipare
+                    <p>Vuoi aggiungere il tuo blog al planet?
                       <a
                       href="mailto:plone-plone-it@lists.plone.org">
-                      invia una mail alla lista italiana.</a>
+                      Invia una mail alla lista italiana.</a>
                     </p>
                     <p class="discreet"
-                      id="last-update">Ultimo aggiornamento:
-                        <py:with vars="date, time = feed.updated.split('T')">
-                          <py:with vars="year, month, day  = date.split('-')">
-                            $day/$month/$year
+                        id="last-update">Ultimo aggiornamento:
+                          <py:with vars="date, time = feed.updated.split('T')">
+                            <py:with vars="year, month, day  = date.split('-')">
+                              $day/$month/$year
+                            </py:with>
+                          ${time[:-1]}
                           </py:with>
-                        ${time[:-1]}
-                        </py:with>
                     </p>
+
+                  </div>
+
+                  <div id="planet-title">
+                    <h1 class="documentFirstHeading">
+                      <a href="http://www.plone.it">
+                      $feed.config.name
+                      </a>
+                    </h1>
                   </div>
 
                   <py:for each="entry in entries">
-                    <div class="channelgroup"
-                        py:strip="not entry.new_date">
-                      <h2 py:if="entry.new_date">$entry.new_date</h2>
-                      <div class="entrygroup"
-                          py:strip="not entry.new_feed">
+                    <div class="channelgroup">
+                      <div class="data-author">
+                        <h2><py:with vars="date = entry.updated.split('T')[0].split('-')">${date[2]}/${date[1]}/${date[0]}</py:with></h2>
+                        <p class="discreet author">
+                          <span class="authorname"><py:if
+                              test="entry.author_detail and entry.author_detail.name">
+                              di $entry.author_detail.name
+                          </py:if></span>
+                          <span class="data-time">
+                          <py:with vars="date, time = entry.updated.split('T')">
+                            ${time[:-1]}
+                          </py:with></span>
+                        </p>
+                      </div>
 
-                        <h3 py:if="entry.new_feed">
+                      <div class="entrygroup">
+                        <h3>
                           <a class="link-plain" href="$entry.link"
                               title="$entry.source.title">
-                              $entry.source.config.name:
                               <span py:if="entry.title"
                                 lang="$entry.title_detail.language">
                                 $entry.title_detail.stream
                               </span>
                           </a>
                         </h3>
-                        <p class="discreet author">
-                          <py:if
-                              test="entry.author_detail and entry.author_detail.name">
-                              di $entry.author_detail.name -
-                          </py:if>
-                          <py:with vars="date, time = entry.updated.split('T')">
-<!--                             <py:with vars="year, month, day  = date.split('-')">
-                              $day/$month/$year
-                            </py:with>
- -->                          ${time[:-1]}
-                          </py:with>
-                        </p>
                         <div class="entry">
                           <div class="tileBody" py:choose="">
                             <py:when test="entry.content">${entry.content[0].stream.parser.parse()}</py:when>
@@ -158,6 +126,93 @@
             </div><!-- end content -->
           </div><!-- end grid-row -->
           <div class="visualClear"><!-- clear floats --></div>
+
+          <div id="portal-footer">
+            <div class="cell position-0 width-full" id="footer-portlets">
+              <div class="row" id="footer-portlets">
+
+
+
+                <div class="FooterPortletA cell position-0 width-3">
+                  <div class="portletWrapper">
+                    <h3>Scorciatoie</h3>
+                    <ul>
+                      <li><a href="http://www.plone.it/scopri/scarica-plone" class="internal-link"> Download </a></li>
+                      <li><a href="http://www.plone.it/scopri/documentazione" class="internal-link"> Documentazione</a></li>
+                      <li><a href="http://www.plone.it/diffondi/marketing-condiviso" class="internal-link"> Marketing </a></li>
+                      <li><a href="http://www.plone.it/scopri/faq" class="internal-link"> FAQ</a></li>
+                      <li><a href="http://www.plone.it/login" class="internal-link"> Login</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+
+                <div class="FooterPortletB cell position-3 width-3">
+                    <div class="portletWrapper">
+                      <div class="portletStaticText portlet-static-aiuto">
+                        <h3>Aiuto</h3>
+                        <ul>
+                          <li>
+                            <a href="http://plone-regional-forums.221720.n2.nabble.com/Plone-Italy-f221721.html"> forum / mailinglist </a>
+                          </li>
+                          <li><a href="http://www.plone.it/partecipa/chat"> chat</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="FooterPortletC cell position-6 width-3">
+                    <div class="portletWrapper">
+                      <div class="portletStaticText portlet-static-rss">
+                        <ul>
+                          <li class="rss-link">
+                            <a title="iscriviti all'RSS delle News di Plone.it" href="news/aggregator/RSS"> plone.it news </a></li>
+                          <li class="rss-link">
+                            <a href="http://plone.it/planet/atom.xml"> planet plone.it </a></li>
+                          <li class="twitter-link">
+                            <a title="seguici su twitter" href="http://twitter.com/ploneit"> twitter </a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="FooterPortletD cell position-9 width-3">
+                    <div class="portletWrapper">
+                      <div class="portletStaticText portlet-static-plone-network">
+                        <ul>
+                          <li>
+                            <a target="_new" href="http://plone.org" class="external_plonesite">plone.org </a>
+                          </li>
+                          <li>
+                            <a target="_new" href="http://plone.net" class="external_plonesite">plone.net </a>
+                          </li>
+                          <li>
+                            <a target="_new" href="http://www.plonegov.it" class="external_plonesite">plonegov.it </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="FooterPortletE cell position-12 width-4">
+                    <div class="portletWrapper">
+                      <div class="portletStaticText portlet-static-site-about">
+                        <div id="site-about">
+                          <img title="Realizzato con Plone" src="http://plone.it/++theme++plonetheme.ploneit/images/logofoot.png" alt="Realizzato con Plone" />
+                          <p><b>Plone.it</b> è realizzato con Plone, CMS Open Source di proprietà della <b><a href="http://plone.org/foundation">Plone Foundation.</a></b><br /> Plone è distribuito con licenza GNU GPL.</p>
+                          <br/>
+                          <p>Per saperne di più vai ai <b><a href="http://plone.it/credits">crediti</a></b>.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+              </div>
+            </div>
+            <div class="visualClear"><!-- clear --></div>
+          </div> <!-- end footer -->
+
         </div>
       </div><!-- end inner-wrapper -->
     </div><!-- end outer-wrapper -->

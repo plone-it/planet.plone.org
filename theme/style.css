@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 * {
     margin: 0;
     padding: 0;
@@ -37,7 +38,12 @@ h3 {
 
 h1 {
 font-size: 4em;
-    font-weight: normal;
+font-weight: normal;
+background: url("images/rss.png") no-repeat scroll 0 10px;
+}
+
+h1 a {
+    padding-left: 80px;
 }
 
 h1, h2 {
@@ -156,15 +162,54 @@ input.searchButton {
 
 /* planet spectific */
 .entrygroup {
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0.5em 0 1em;
+    margin: 0 0 0;
+    float: right;
+    width: 78%;
+    padding: 0.5em 1em;
+    border: 1px solid #EEE;
+    background-color: #FAFAFA;
+    border-radius: 10px;
+}
+.entrygroup h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    margin: 0 0 0.3em;
+    font-size: 1.5em;
 }
 
 .channelgroup {
-    margin-top: 1.5em;
+    clear: both;
+    padding: 1em 0;
 }
-
+.channelgroup h2 {
+    color: #333;
+    font-size: 1.1em;
+    font-family: 'Georgia', Helvetica, Arial, sans-serif;
+    padding: 0 0 0.4em;
+}
+.data-author {
+    float: left;
+    width: 15%;
+    clear: both;
+    text-align: right;
+}
+.data-author .data-time {
+    font-size: 0.7em;
+    font-weight: normal;
+    color: #555;
+    display: block;
+    font-family: Helvetica, Arial, sans-serif;
+    margin-left: 0.3em;
+}
+.author {
+    padding: 0.4em 0 0;
+    border-top: 1px dotted #0083BE;
+}
+.author .authorname {
+    color: #000;
+    font-style: italic;
+    font-family: 'Georgia', Helvetica, Arial, sans-serif;
+}
 
 #content {
     margin: 1em 0.25em;
@@ -222,20 +267,45 @@ div.position-0 {
     margin-left: -98.875%;
 }
 
+div.position-3 {
+    margin-left: -80.125%;
+}
+div.width-3 {
+    width: 16.5%;
+}
+
+div.position-6 {
+    margin-left: -61.375%;
+}
+div.position-9 {
+    margin-left: -42.625%;
+}
+
+div.position-9 {
+    margin-left: -42.625%;
+}
+
+div.position-12 {
+    margin-left: -23.875%;
+}
+div.width-4 {
+    width: 22.75%;
+}
+
 #intro-description {
-    background: url("images/rss.png") no-repeat scroll 0 7px #F4F4F4;
-    border-radius: 5px 5px 5px 5px;
-    margin-bottom: 2em;
-    padding: 1em 2em 1em 130px;
+    float: right;
+    font-size: 85%;
+    margin: 2em 1em 3em;
+    padding: 0;
+    text-align: left;
 }
 
 #intro-description p {
     margin-bottom: .2em;
-
 }
 p#last-update {
     font-size: 90%;
-    margin-top: 1.5em;
+    /*margin-top: 1.5em;*/
 }
 
 .documentFirstHeading {
@@ -262,3 +332,70 @@ p#last-update {
     padding: 0 1em;
     width: 35%;
 }
+
+#planet-title {
+margin-bottom: 2em;
+}
+
+.visualClear {
+    clear: both;
+}
+
+#portal-footer {
+    background: none repeat scroll 0 0 #0089D9;
+    border-radius: 0.5em 0.5em 0 0;
+    border: 0;
+    color: white;
+    margin: 2.5em 0 0;
+    padding: 1em 0;
+    text-align: left;
+    font-size: 85%;
+    line-height: 2em;
+}
+
+
+#portal-footer h3 {
+    border-bottom: 1px solid #FFFFFF;
+    color: white;
+    font-size: 140%;
+    font-weight: normal;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+#portal-footer ul {
+    list-style-type: none;
+    padding-left: 0.5em;
+}
+
+#footer-portlets li {
+    display: block;
+}
+
+#portal-footer a {
+    color: #FFFFFF;
+}
+
+.twitter-link, .rss-link {
+    line-height: 27px;
+}
+
+.twitter-link a, .rss-link a {
+    background: url("http://plone.it/++theme++plonetheme.ploneit/images/twitter_icon.gif") no-repeat scroll 0 5px transparent;
+    padding: 5px 0 5px 20px;
+}
+
+.rss-link a {
+    background: url("http://plone.it/++theme++plonetheme.ploneit/images/rss_icon.png") no-repeat scroll 0 5px transparent;
+}
+
+.external_plonesite {
+    background-image: url("http://plone.it/++theme++plonetheme.ploneit/images/ico_link.gif");
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}
+
+#portal-footer #site-about {
+    font-size: 85%;
+}
+
